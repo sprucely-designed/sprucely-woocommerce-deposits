@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Add custom order item name for scheduled orders.
-add_action( 'woocommerce_deposits_create_order', 'custom_update_deposit_order_item_name', 10, 1 );
+add_action( 'woocommerce_deposits_create_order', 'sprucely_custom_update_deposit_order_item_name', 10, 1 );
 
 /**
  * Update order item name for deposit orders.
  *
  * @param int $new_order_id The new order ID.
  */
-function custom_update_deposit_order_item_name( $new_order_id ) {
+function sprucely_custom_update_deposit_order_item_name( $new_order_id ) {
 	$new_order = wc_get_order( $new_order_id );
 
 	if ( 'wc_deposits' === $new_order->get_created_via() ) {
